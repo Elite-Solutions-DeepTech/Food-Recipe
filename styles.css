@@ -2,21 +2,16 @@ body {
     font-family:Arial, sans-serif;
     margin:0;
     padding:0;
-background: url("background.jpg"    )  no-repeat center center fixed;
+background: url("background.jpg" )no-repeat center center fixed ;
 background-size: cover;
     color: #333;
 }
 
 header {
-    /* background-color:rgba(255, 99, 71,0.9); Slightly transparent to show the background  */
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    background-color: rgba(255, 255, 255, 0.68);
-    border-radius: 12px;
-    border: 1px solid rgba(209, 213, 219, 0.3);
-    color: white;
+    background-color:white; 
     padding: 1rem;
     text-align: center;
+    height: 130px;
 }
 
 header .logo {
@@ -25,9 +20,12 @@ header .logo {
     left: 30px;
     width: 80px; /* Adjust size as needed */
     height:auto;
+    margin-top: 105px;
+    border-radius: 150px;
 }
 
 input[type="text"],
+input[type="email"],
 input[type="password"] {
     padding: 0.5rem;
     width: 60%;
@@ -35,15 +33,26 @@ input[type="password"] {
 }
 
 button {
-    padding: 0.5rem 1rem;
-    background-color: #333;
-    color: white;
+    padding: 10px 20px;
+    margin-right: 10px;
     border: none;
+    border-radius: 60px;
+    background-color: #4caf50;
+    color: rgb(13, 11, 11);
+    font-size: 16px;
     cursor: pointer;
-}
-
+    transition: background-color 0.3s ease,transform 0.3s ease; }
 button:hover {
-    background-color: #555;
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+button:active {
+    background-color: #3e8e41;
+    transform: scale(0.95); 
+}
+button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 main {
@@ -54,10 +63,11 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+
 }
 
 .recipe {
-    background: white;
+    background: rgb(252, 240, 222);
     border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -65,6 +75,7 @@ main {
     width: calc(33% - 6rem);
     padding: 1rem;
     text-align: center;
+    height: 100%;
 }
 
 .recipe img {
@@ -87,8 +98,7 @@ main {
 }
 
 .comments-section {
-    margin-top: 1rem;
-    text-align: left;
+  margin-top: 20px;
 }
 
 .comments-section h3 {
@@ -96,21 +106,22 @@ main {
 }
 
 .comment-box {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
 .star-rating {
     display: flex;
-    justify-content: center;
-    margin-top: 1rem;
+    justify-content: flex-start;
+    margin-top: 10px;
 }
 
 .star {
-    font-size: 2rem;
+    font-size: 20px;
     color: #ccc;
     cursor: pointer;
+    margin-right: 10px;
 }
 
 .star.checked {
@@ -118,7 +129,7 @@ main {
 }
 /* Modal styles */
 
-.modal {
+.modal{
     display: none; 
     position: fixed; 
     z-index: 1; 
@@ -132,51 +143,93 @@ main {
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: #fff;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
     max-width: 400px;
-    border-radius: 10px;
-    text-align: center;
+    border-radius: 8px;
 }
 
-.close {
+.modal-content .close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
-    color: black;
+.modal-content .close:hover,
+.modal-content .close:focus {
+    color: #000;
     text-decoration: none;
     cursor: pointer;
 }
 
-input[type="text"], input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0 10px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    border-radius: 5px;
-}
 
-button[type="submit"] {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-    margin: 10px 0;
-    border: none;
+#signupBtn {
+    padding: 10px 10px;
+    font-size: 16px;
     cursor: pointer;
-    width: 100%;
-    border-radius: 5px;
 }
 
-button[type="submit"]:hover {
-    background-color: #555;
+.closeBtn {
+    color: #c02626;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.closeBtn:hover,
+.closeBtn:focus {
+    color: rgb(236, 106, 106);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top:8px;
+}
+
+input {
+    margin-bottom: 10px;
+    padding: 8px;
+    font-size: 16px;
+}
+
+.navbar {
+    background-color: #e15412;
+    overflow: hidden;
+}
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+.navbar a:hover {
+    background-color: #eae0e0;
+    color: rgb(2, 2, 2);
+}
+.navbar .login {
+    float: right;
+    background-color: #17d71d;
+}
+.navbar .login:hover {
+    background-color: #45a049;
+}
+.content {
+    padding: 20px;
+}
+.logo {
+
+    margin-top: 35px;
+    margin-left: 15px;
 }
