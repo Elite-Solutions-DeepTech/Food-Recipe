@@ -45,6 +45,7 @@ function displayRecipes(recipes) {
         });
         recipeDiv.appendChild(ingredientsList);
 
+        
         // Comment Section
         const commentSection = document.createElement('div');
         commentSection.className = 'comments-section';
@@ -93,42 +94,26 @@ function rateRecipe(starRating, rating) {
         star.classList.toggle('checked', index < rating);
     });
 }
+// script.js
+document.addEventListener("DOMContentLoaded", function() {
+    const signupBtn = document.getElementById('signupBtn');
+    const signupForm = document.getElementById('signupForm');
+    const closeBtn = document.querySelector('.closeBtn');
 
-// Modal functions
+    // Show the signup form modal
+    signupBtn.onclick = function() {
+        signupForm.style.display = 'block';
+    }
 
-function openModal() {
-    document.getElementById('loginModal').style.display = 'block';
-}
+    // Hide the signup form modal
+    closeBtn.onclick = function() {
+        signupForm.style.display = 'none';
+    }
 
-function closeModal() {
-    document.getElementById('loginModal').style.display = 'none';
-}
-
-function handleLogin(event) {
-    event.preventDefault();
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    // Placeholder login logic,replace with actual authentication
-    if(username === 'user' && password === 'password') 
-        {
-            alert('Login Sucessful!');
-            closeModal();
-        } else {
-            alert('Invalid credentials');
+    // Hide the signup form modal when clicking outside of it
+    window.onclick = function(event) {
+        if (event.target === signupForm) {
+            signupForm.style.display = 'none';
         }
-        }
-        function handleRegister(event) {
-            event.preventDefault();
-            const newUsername = document.getElementById('newUsername').value;
-            const newPassword = document.getElementById('newPassword').value;
-        
-            // Placeholder registration logic, replace with actual registration
-            if (newUsername && newPassword) {
-                alert('Registration successful! You can now log in.');
-                closeModal('registerModal');
-            } else {
-                alert('Please fill in all fields');
-            }
-        }
-
+    }
+});
