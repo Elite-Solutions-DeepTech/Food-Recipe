@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="contact.css">
+    <script src="https://kit.fontawesome.com/c32adfdcda.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <form action="" name="submit-to-google-sheet">
+    <section>
+    
+      <div class="section-header">
+        <div class="container">
+          <h2>Contact Us</h2>
+          <p>Food is any substance consumed by an organism for nutritional support. Food is usually of plant, animal, or fungal origin and contains essential nutrients such as carbohydrates, fats, proteins, vitamin…</p>
+        </div>
+      </div>
+      
+      <div class="container">
+        <div class="row">
+          
+          <div class="contact-info">
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="fas fa-home"></i>
+              </div>
+              
+              <div class="contact-info-content">
+                <h4>Address</h4>
+                <p>964 Smoky Hollow Street
+                  Brooklyn, NY 11207,New York</p>
+              </div>
+            </div>
+            
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              
+              <div class="contact-info-content">
+                <h4>Phone</h4>
+                <p>+91 180056009310</p>
+              </div>
+            </div>
+            
+            <div class="contact-info-item">
+              <div class="contact-info-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              
+              <div class="contact-info-content">
+                <h4>Email</h4>
+               <p>recipecontactus@gmail.com</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contact-form">
+            <form action="" id="contact-form">
+              <h2>Send Message</h2>
+              <div class="input-box">
+                <input type="text" required="true" name="name" placeholder="Full Name">
+     
+              </div>
+              
+              <div class="input-box">
+                <input type="email" required="true" name="gmail" placeholder="Email">
+               
+              </div>
+              
+              <div class="input-box">
+                <textarea required="true" name="text" placeholder="Type your Message..."></textarea>
+                
+              </div>
+              
+              <div class="input-box">
+                <input type="submit" value="Send" name="">
+              </div>
+            </form>
+          </div>
+          
+        </div>
+      </div>
+  <section>
+  </form>
+  <script>
+		const scriptURL = 'https://script.google.com/macros/s/AKfycbwvz0NbG47vc1HYGcJXgcNqdMMiUz7-pMdQxtwV-YC9IserN00hJYX-O3WVxCHLwNsf/exec'
+		const form = document.forms['submit-to-google-sheet']
+
+		form.addEventListener('submit', e => {
+			e.preventDefault()
+			fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+				.then(response => {
+					console.log('Success!', response)
+					alert("successfully completed");
+					form.reset();
+					window.location.href = 'index.html'
+				})
+				.catch(error => console.error('Error!', error.message))
+		})
+	</script>
+</body>
+</html>
