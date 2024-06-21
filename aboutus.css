@@ -1,0 +1,33 @@
+.main-container{
+    text-align: right;
+    background-image: url("img/aboutus1.jpg");
+    height: 100%;
+    background-size: cover;
+}
+.span{
+    font-weight: bold;
+    color: orange;
+}
+.navbar {
+    background-color: #e15412;
+    overflow: hidden;
+}
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+.navbar a:hover {
+    background-color: #eae0e0;
+    color: rgb(2, 2, 2);
+}
+.navbar .login {
+    float: right;
+    background-color: #17d71d;
+}
+.navbar .login:hover {
+    background-color: #45a049;
+}
